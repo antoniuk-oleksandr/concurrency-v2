@@ -1,10 +1,10 @@
-package org.example.sum.managers;
+package org.example.sum.manager;
 
 public class SumManager {
     private final int step;
-    private final long[] arr;
+    private final int[] arr;
 
-    public SumManager(long[] arr, int numOfThreads) {
+    public SumManager(int[] arr, int numOfThreads) {
         this.arr = arr;
         this.step = arr.length / numOfThreads;
     }

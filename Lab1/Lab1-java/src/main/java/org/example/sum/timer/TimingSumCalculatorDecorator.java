@@ -1,9 +1,10 @@
-package org.example.sum.strategies;
+package org.example.sum.timer;
 
-public record TimingSumStrategyDecorator(SumStrategy wrapped) implements SumStrategy {
+import org.example.sum.calculator.SumCalculator;
 
+public record TimingSumCalculatorDecorator(SumCalculator wrapped) implements SumCalculator {
     @Override
-    public long calcSum(long[] arr) {
+    public long calcSum(int[] arr) {
         long start = System.currentTimeMillis();
         long result = wrapped.calcSum(arr);
         long end = System.currentTimeMillis();

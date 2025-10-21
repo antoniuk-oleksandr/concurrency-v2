@@ -1,6 +1,6 @@
-package org.example.sum.strategies;
+package org.example.sum.calculator;
 
-import org.example.sum.managers.SumManager;
+import org.example.sum.manager.SumManager;
 
 import java.util.concurrent.RecursiveTask;
 
@@ -17,7 +17,7 @@ public class ForkJoinSumTask extends RecursiveTask<Long> {
     }
 
     @Override
-    public  Long  compute () {
+    public Long compute() {
         int length = end - start;
         if (length <= THRESHOLD) {
             return sumManager.calcSubSum(new int[]{start, end});

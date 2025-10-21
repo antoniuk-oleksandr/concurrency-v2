@@ -2,6 +2,7 @@ package org.example.array;
 
 
 import java.util.Random;
+import java.util.stream.IntStream;
 
 public class ArrayGenerator {
     private final Random rand;
@@ -10,13 +11,11 @@ public class ArrayGenerator {
         rand = new Random();
     }
 
-    public long[] generateArray(int arrLength, int max) {
-        long[] arr = new long[arrLength];
-
-        for (int i = 0; i < arr.length; i++) {
+    public int[] generateArray(int arrLength, int max) {
+        int[] arr = new int[arrLength];
+        for (int i = 0; i < arrLength; i++) {
             arr[i] = rand.nextInt(max);
         }
-
         return arr;
     }
 }
