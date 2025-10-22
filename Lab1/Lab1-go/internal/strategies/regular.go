@@ -31,10 +31,8 @@ func (r regularSumStrategy) CalcSum(arr []int) int64 {
 		}(i)
 	}
 
-	go func() {
-		wg.Wait()
-		close(ch)
-	}()
+	wg.Wait()
+	close(ch)
 
 	sum := int64(0)
 	for val := range ch {
