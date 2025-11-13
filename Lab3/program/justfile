@@ -1,0 +1,7 @@
+# build the project
+build:
+    cd build && cmake .. && make
+
+# run the project
+run :
+    ./build/main
