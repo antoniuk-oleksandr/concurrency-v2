@@ -16,8 +16,6 @@ int64_t SingleSumCalc::calcSum(int64_t *arr, int arr_size) {
 int64_t ParallelSumCalc::calcSum(int64_t *arr, int arr_size) {
   int64_t sum = 0;
 
-  omp_set_num_threads(this->threads);
-
 #pragma omp parallel for reduction(+ : sum)
   for (int i = 0; i < arr_size; i++) {
     sum += arr[i];

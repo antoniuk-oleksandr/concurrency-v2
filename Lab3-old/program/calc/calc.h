@@ -2,7 +2,6 @@
 #define CALC_H
 
 #include <cstdint>
-#include <string>
 
 class SumCalc {
 public:
@@ -10,52 +9,27 @@ public:
   virtual ~SumCalc() = default;
 };
 
-class SumCalcFactory {
-private:
-  int threads;
-  std::string mode;
-
-public:
-  SumCalcFactory(const std::string &mode, int threads)
-      : mode(mode), threads(threads) {}
-
-  SumCalc *createSumCalc(); // <--- MUST return pointer
-};
-
 namespace normal {
-
 class SingleSumCalc : public SumCalc {
 public:
   int64_t calcSum(int64_t *arr, int arr_size) override;
 };
 
 class ParallelSumCalc : public SumCalc {
-private:
-  int threads;
-
 public:
-  ParallelSumCalc(int threads) : threads(threads) {}
   int64_t calcSum(int64_t *arr, int arr_size) override;
 };
-
 } // namespace normal
 
 namespace wave {
-
 class SingleSumCalc : public SumCalc {
 public:
   int64_t calcSum(int64_t *arr, int arr_size) override;
 };
 
 class ParallelSumCalc : public SumCalc {
-private:
-  int threads;
-
 public:
-  ParallelSumCalc(int threads) : threads(threads) {}
   int64_t calcSum(int64_t *arr, int arr_size) override;
 };
-
 } // namespace wave
-
 #endif

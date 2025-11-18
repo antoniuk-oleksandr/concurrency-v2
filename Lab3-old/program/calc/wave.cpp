@@ -1,5 +1,4 @@
 #include "calc.h"
-#include <omp.h>
 
 namespace wave {
 int64_t SingleSumCalc::calcSum(int64_t *arr, int arr_size) {
@@ -21,8 +20,6 @@ int64_t SingleSumCalc::calcSum(int64_t *arr, int arr_size) {
 
 int64_t ParallelSumCalc::calcSum(int64_t *arr, int arr_size) {
   int active = arr_size;
-
-  omp_set_num_threads(this->threads);
 
   while (active > 1) {
     int half = active / 2;

@@ -19,7 +19,6 @@ add_executable(main
     main.cpp
     array/array.cpp
     calc/normal.cpp
-    calc/factory.cpp
     calc/wave.cpp
     timer/timer.cpp
 )

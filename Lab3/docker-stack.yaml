@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  mpi_node:
+    image: mpi-sum:latest
+    deploy:
+      mode: replicated
+      replicas: ${NUM_NODES}
+    networks:
+      - mpi_net
+
+networks:
+  mpi_net:
+    driver: overlay

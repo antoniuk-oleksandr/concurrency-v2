@@ -1,0 +1,11 @@
+set shell := ["bash", "-c"]
+
+swarm-leave:
+    docker swarm leave --force
+
+swarm-run num_nodes="4":
+    docker swarm init
+    NUM_NODES={{num_nodes}} docker stack deploy -c docker-stack.yaml mpi
+
+mpi mode="normal_parallel" threads="4":
+    ./run_mpi_local.sh {{mode}} {{threads}}

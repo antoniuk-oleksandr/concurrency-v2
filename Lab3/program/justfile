@@ -3,5 +3,5 @@ build:
     cd build && cmake .. && make
 
 # run the project
-run :
-    ./build/main
+run THREADS="16" MODE="normal_single":
+  SUM_THREADS={{THREADS}} SUM_MODE={{MODE}} ./build/main
